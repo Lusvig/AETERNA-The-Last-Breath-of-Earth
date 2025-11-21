@@ -2,12 +2,14 @@
 
 This directory contains convenient batch scripts for AETERNA development and deployment.
 
+> **Heads up:** The root-level `setup.bat`, `start.bat`, and `uninstall.bat` deliver the one-click player installer/launcher experience. Developers should continue using `setup_dev.bat` and `start_dev.bat` as documented below for engine and source workflows.
+
 ## Quick Start
 
 ### First Time Setup
 
 ```batch
-setup.bat
+setup_dev.bat
 ```
 
 This initializes your development environment by:
@@ -18,43 +20,43 @@ This initializes your development environment by:
 
 You can optionally specify an engine path:
 ```batch
-setup.bat "C:\Program Files\Epic\UE_5.4"
+setup_dev.bat "C:\Program Files\Epic\UE_5.4"
 ```
 
 ### Running AETERNA
 
 ```batch
-start.bat
+start_dev.bat
 ```
 
 This launches the Unreal Editor with the project. You can also:
 
 **Launch editor (default):**
 ```batch
-start.bat
-start.bat editor
+start_dev.bat
+start_dev.bat editor
 ```
 
 **Run packaged game:**
 ```batch
-start.bat game
+start_dev.bat game
 ```
 
 **Run specific map in editor:**
 ```batch
-start.bat map Paris_Overgrown_Day47
+start_dev.bat map Paris_Overgrown_Day47
 ```
 
 **Specify custom engine path:**
 ```batch
-start.bat editor "C:\Program Files\Epic\UE_5.4"
-start.bat game "C:\Program Files\Epic\UE_5.4"
-start.bat map Paris_Overgrown_Day47 "C:\Program Files\Epic\UE_5.4"
+start_dev.bat editor "C:\Program Files\Epic\UE_5.4"
+start_dev.bat game "C:\Program Files\Epic\UE_5.4"
+start_dev.bat map Paris_Overgrown_Day47 "C:\Program Files\Epic\UE_5.4"
 ```
 
 ## Available Scripts
 
-### `setup.bat` - Development Environment Setup
+### `setup_dev.bat` - Development Environment Setup
 
 **Purpose:** Initialize the development environment for AETERNA
 
@@ -68,14 +70,14 @@ start.bat map Paris_Overgrown_Day47 "C:\Program Files\Epic\UE_5.4"
 
 **Usage:**
 ```batch
-setup.bat [ENGINE_PATH]
+setup_dev.bat [ENGINE_PATH]
 ```
 
 **Examples:**
 ```batch
-setup.bat
-setup.bat "C:\Program Files\Epic\UE_5.4"
-setup.bat "D:\UnrealEngine\UE_5.4"
+setup_dev.bat
+setup_dev.bat "C:\Program Files\Epic\UE_5.4"
+setup_dev.bat "D:\UnrealEngine\UE_5.4"
 ```
 
 **What it does:**
@@ -88,10 +90,10 @@ setup.bat "D:\UnrealEngine\UE_5.4"
 
 **Next steps after setup:**
 - Open `Aeterna.sln` in Visual Studio 2022 for C++ development
-- Or run `start.bat` to open the editor
+- Or run `start_dev.bat` to open the editor
 - See QUICKSTART.md for detailed developer guide
 
-### `start.bat` - Launch AETERNA
+### `start_dev.bat` - Launch AETERNA
 
 **Purpose:** Conveniently launch AETERNA in various modes
 
@@ -99,38 +101,38 @@ setup.bat "D:\UnrealEngine\UE_5.4"
 
 | Mode | Command | Purpose |
 |------|---------|---------|
-| Editor | `start.bat` or `start.bat editor` | Launch Unreal Editor with project |
-| Game | `start.bat game` | Run packaged game executable |
-| Map | `start.bat map <name>` | Launch editor with specific map |
+| Editor | `start_dev.bat` or `start_dev.bat editor` | Launch Unreal Editor with project |
+| Game | `start_dev.bat game` | Run packaged game executable |
+| Map | `start_dev.bat map <name>` | Launch editor with specific map |
 
 **Usage:**
 ```batch
-start.bat [MODE] [EXTRA_ARG] [ENGINE_PATH]
+start_dev.bat [MODE] [EXTRA_ARG] [ENGINE_PATH]
 ```
 
 **Examples:**
 
 ```batch
 REM Launch editor (default)
-start.bat
+start_dev.bat
 
 REM Launch editor explicitly
-start.bat editor
+start_dev.bat editor
 
 REM Run packaged game
-start.bat game
+start_dev.bat game
 
 REM Launch editor with Paris vertical slice map
-start.bat map Paris_Overgrown_Day47
+start_dev.bat map Paris_Overgrown_Day47
 
 REM Specify custom engine location
-start.bat editor "C:\Program Files\Epic\UE_5.4"
+start_dev.bat editor "C:\Program Files\Epic\UE_5.4"
 
 REM Run game with custom engine
-start.bat game "C:\Program Files\Epic\UE_5.4"
+start_dev.bat game "C:\Program Files\Epic\UE_5.4"
 
 REM Launch map with custom engine
-start.bat map Paris_Overgrown_Day47 "C:\Program Files\Epic\UE_5.4"
+start_dev.bat map Paris_Overgrown_Day47 "C:\Program Files\Epic\UE_5.4"
 ```
 
 **Features:**
@@ -163,15 +165,15 @@ For production builds, see also:
 
 ## Requirements
 
-### For setup.bat:
+### For setup_dev.bat:
 - Unreal Engine 5.4 or newer
 - Visual Studio 2022 with C++ tools
 - Git with LFS support (optional, for large file tracking)
 - ~100GB free disk space for builds
 
-### For start.bat:
+### For start_dev.bat:
 - Unreal Engine 5.4 or newer installed
-- Project must be compiled first (run `setup.bat`)
+- Project must be compiled first (run `setup_dev.bat`)
 - For game mode: pre-packaged executable required
 
 ## Troubleshooting
@@ -184,18 +186,18 @@ For production builds, see also:
 
 2. Specify engine path explicitly:
    ```batch
-   setup.bat "D:\UnrealEngine\UE_5.4"
-   start.bat editor "D:\UnrealEngine\UE_5.4"
+   setup_dev.bat "D:\UnrealEngine\UE_5.4"
+   start_dev.bat editor "D:\UnrealEngine\UE_5.4"
    ```
 
-### setup.bat fails to compile
+### setup_dev.bat fails to compile
 
 1. Ensure Visual Studio 2022 is installed with C++ workload
-2. Run `setup.bat` again - compilation warnings are usually recoverable
+2. Run `setup_dev.bat` again - compilation warnings are usually recoverable
 3. Check Visual Studio build output for specific errors
 4. Try running `Build\Windows\build_standalone.bat` for more verbose output
 
-### start.bat game not finding executable
+### start_dev.bat game not finding executable
 
 1. Package the game first:
    ```batch
@@ -204,7 +206,7 @@ For production builds, see also:
 
 2. Wait for packaging to complete (2-4 hours)
 
-3. Try `start.bat game` again
+3. Try `start_dev.bat game` again
 
 ### Map not found in editor
 
@@ -212,7 +214,7 @@ For production builds, see also:
 2. Check exact map name matches file name (case-sensitive in some cases)
 3. Use full path format if needed:
    ```batch
-   start.bat map /Game/Maps/VerticalSlice/Paris_Overgrown_Day47
+   start_dev.bat map /Game/Maps/VerticalSlice/Paris_Overgrown_Day47
    ```
 
 ## Exit Codes
@@ -222,9 +224,9 @@ For production builds, see also:
 
 ## Tips
 
-1. **Speed up setup:** If you've already compiled, run `setup.bat` briefly and cancel after generation step
+1. **Speed up setup:** If you've already compiled, run `setup_dev.bat` briefly and cancel after generation step
 2. **Multiple engine versions:** Always specify ENGINE_PATH if you have multiple UE versions
-3. **Development workflow:** Use `start.bat` for quick editor launches during development
+3. **Development workflow:** Use `start_dev.bat` for quick editor launches during development
 4. **Production builds:** Use `Build\Windows\build_standalone.bat` for shipping/packaged builds
 5. **Script customization:** Feel free to edit these .bat files to match your workflow
 
@@ -239,8 +241,8 @@ For production builds, see also:
 
 ```batch
 REM Full developer setup
-setup.bat
-start.bat
+setup_dev.bat
+start_dev.bat
 
 REM Package for distribution
 Build\Windows\build_standalone.bat
