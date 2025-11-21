@@ -1,0 +1,61 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.4",
+	"Category": "Survival",
+	"Description": "AETERNA: The Last Breath of Earth - An ultra-realistic open-world survival game about the final days of humanity",
+	"Modules": [
+		{
+			"Name": "Aeterna",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		},
+		{
+			"Name": "AeternaEditor",
+			"Type": "Editor",
+			"LoadingPhase": "PostDefault"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "Nanite",
+			"Enabled": true
+		},
+		{
+			"Name": "Lumen",
+			"Enabled": true
+		},
+		{
+			"Name": "WorldPartition",
+			"Enabled": true
+		},
+		{
+			"Name": "Niagara",
+			"Enabled": true
+		},
+		{
+			"Name": "MassEntity",
+			"Enabled": true
+		},
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
+		},
+		{
+			"Name": "GameplayTags",
+			"Enabled": true
+		},
+		{
+			"Name": "Wwise",
+			"Enabled": true
+		},
+		{
+			"Name": "XistAudio",
+			"Enabled": false
+		}
+	]
+}
