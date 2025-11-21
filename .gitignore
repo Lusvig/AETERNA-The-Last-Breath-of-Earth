@@ -72,6 +72,10 @@ MANIFEST
 !Build/Scripts/
 !Build/Scripts/**
 
+# Root level launcher scripts
+!start.bat
+!setup.bat
+
 # Documentation
 docs/_build/
 site/
