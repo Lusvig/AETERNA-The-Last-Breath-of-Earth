@@ -51,13 +51,26 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Build output
-/Build/
+# Build output (but allow build scripts and documentation)
+/Build/Packaged/
+/Build/Intermediate/
+/Build/Saved/
+/Build/Binaries/
 *.exe
 *.dll
 *.lib
 *.a
 *.o
+
+# But DO track build scripts and documentation
+!Build/
+!Build/*.md
+!Build/Windows/
+!Build/Windows/*.bat
+!Build/Windows/*.ps1
+!Build/Windows/*.md
+!Build/Scripts/
+!Build/Scripts/**
 
 # Documentation
 docs/_build/
